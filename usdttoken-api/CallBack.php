@@ -1,5 +1,5 @@
 <?php
-
+//demo
 //回调示例
 $call_back_data = array(
     'timestamp' => (string) $_POST['timestamp'],
@@ -10,7 +10,7 @@ $call_back_data = array(
 
 file_put_contents("call_back_data.txt", "\n" . date('Y-m-d H:i:s') . $call_back_data['body'] . "\n", FILE_APPEND);
 
-$sign = md5($call_back_data['body'] . CLIENTCONFIG['api_key'] . $call_back_data['nonce'] . $call_back_data['timestamp']);
+$sign = md5($call_back_data['body'] . $CLIENTCONFIG['api_key'] . $call_back_data['nonce'] . $call_back_data['timestamp']);
 
 if ($call_back_data['sign'] == $sign) {
     $body = json_decode($call_back_data['body']);
