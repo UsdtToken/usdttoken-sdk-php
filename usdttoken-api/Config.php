@@ -17,4 +17,4 @@ $config = [
 
 ];
 
-define('CLIENTCONFIG', $config);
+define('CLIENTCONFIG', serialize($config));
